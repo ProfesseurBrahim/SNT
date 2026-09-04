@@ -1850,6 +1850,117 @@ h1.hero-title{
   .snt-big-card{ padding:18px; border-radius:var(--radius-md); }
 }
 
+/* ---- Layout en 3 colonnes : programme (étroite) / 2 colonnes d'activités ---- */
+.snt-columns{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+.snt-col-programme{ display:flex; flex-direction:column; }
+@media (max-width:1000px){
+  .snt-columns{ grid-template-columns:1fr 1fr; }
+  .snt-col-programme{ grid-column:1 / -1; }
+}
+@media (max-width:640px){
+  .snt-columns{ grid-template-columns:1fr; }
+  .snt-col-programme{ grid-column:auto; }
+}
+
+.snt-col-title{
+  font-size:0.72rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--grey-dim);
+  margin:0 0 12px;
+}
+
+/* Programme officiel : tableau contenus / compétences */
+.snt-prog-table{
+  width:100%;
+  flex:1;
+  height:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  background:rgba(212,162,78,0.05);
+}
+.snt-prog-table th{
+  text-align:left;
+  font-size:0.62rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--accent);
+  padding:10px 14px;
+  border-bottom:1px solid var(--line);
+  background:rgba(212,162,78,0.08);
+}
+.snt-prog-table td{
+  vertical-align:top;
+  font-size:0.8rem;
+  color:var(--grey);
+  line-height:1.45;
+  padding:12px 14px;
+  border-bottom:1px solid var(--line);
+}
+.snt-prog-table tr:last-child td{ border-bottom:none; }
+.snt-prog-table td + td{ border-left:1px solid var(--line); }
+
+/* Activités du chapitre : liste verticale scrollable */
+.snt-activities{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  max-height:560px;
+  overflow-y:auto;
+  padding-right:4px;
+}
+.snt-activities::-webkit-scrollbar{ width:6px; }
+.snt-activities::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
+.snt-activity{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:inherit;
+  padding:11px 14px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:rgba(212,162,78,0.04);
+  transition:transform 0.2s, border-color 0.2s, background 0.2s;
+}
+.snt-activity:hover{
+  transform:translateX(3px);
+  border-color:rgba(212,162,78,0.5);
+  background:rgba(212,162,78,0.10);
+}
+.snt-activity-n{
+  flex-shrink:0;
+  width:26px; height:26px;
+  border-radius:8px;
+  background:rgba(212,162,78,0.14);
+  color:var(--accent);
+  font-size:0.72rem;
+  font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+}
+.snt-activity-label{
+  flex:1;
+  font-size:0.84rem;
+  font-weight:600;
+  color:var(--white);
+  line-height:1.3;
+}
+.snt-activity-icon{
+  flex-shrink:0;
+  width:16px; height:16px;
+  color:var(--grey-dim);
+}
+
 </style>
 </head>
 
@@ -1892,9 +2003,9 @@ h1.hero-title{
       </div>
     </div>
     <div class="nav-grade-dropdown">
-      <a class="nav-link nav-link-active" href="#">2nde</a>
+      <a class="nav-link nav-link-active" href="https://professeurbrahim.github.io/2nde/">2nde</a>
       <div class="nav-grade-menu">
-        <a href="#">2nde</a>
+        <a href="https://professeurbrahim.github.io/2nde/">2nde</a>
         <a class="is-active" href="#">SNT</a>
       </div>
     </div>
@@ -1941,7 +2052,7 @@ h1.hero-title{
       <h1 class="hero-title">Sciences numériques et technologie</h1>
       <div class="year-progress">
         <div class="year-progress-bar"><div class="year-progress-fill" id="year-progress-fill"></div></div>
-        <div class="year-progress-label" id="year-progress-label">Progression de l'année scolaire</div>
+        <div class="year-progress-label" id="year-progress-label">Année scolaire 2026-2027 · 1% écoulés</div>
       </div>
     </div>
   </section>
@@ -1965,7 +2076,104 @@ h1.hero-title{
         <h2>Internet</h2>
       </div>
       <div class="snt-big-card">
-        <div class="snt-big-card-placeholder">Contenu à venir</div>
+        <div class="snt-columns">
+
+          <!-- Colonne 1 : programme officiel (tableau contenus / compétences) -->
+          <div class="snt-col-programme">
+            <p class="snt-col-title">Programme</p>
+            <table class="snt-prog-table">
+              <thead>
+                <tr>
+                  <th>Contenus</th>
+                  <th>Compétences</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Protocole TCP/IP : paquets, routage des paquets</td>
+                  <td>Distinguer le rôle des protocoles IP et TCP. Caractériser les principes du routage et ses limites. Distinguer la fiabilité de transmission et l'absence de garantie temporelle.</td>
+                </tr>
+                <tr>
+                  <td>Adresses symboliques et serveurs DNS</td>
+                  <td>Sur des exemples réels, retrouver une adresse IP à partir d'une adresse symbolique et inversement.</td>
+                </tr>
+                <tr>
+                  <td>Réseaux pair-à-pair</td>
+                  <td>Décrire l'intérêt des réseaux pair-à-pair ainsi que les usages illicites qu'on peut en faire.</td>
+                </tr>
+                <tr>
+                  <td>Indépendance d'Internet par rapport au réseau physique</td>
+                  <td>Caractériser quelques types de réseaux physiques : obsolètes ou actuels, rapides ou lents, filaires ou non. Caractériser l'ordre de grandeur du trafic de données sur Internet et son évolution.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Colonne 2 : activités 1 à 5 -->
+          <div class="snt-col-activities">
+            <p class="snt-col-title">Activités</p>
+            <div class="snt-activities">
+              <a class="snt-activity" href="ressources/Internet - Activite 1.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">01</span>
+                <span class="snt-activity-label">Le trajet d'un message sur Internet</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="ressources/Internet - Activite 2.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">02</span>
+                <span class="snt-activity-label">Adresses IP et noms de domaine</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="ressources/Internet - Activite 3.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">03</span>
+                <span class="snt-activity-label">Commandes réseau : ping et traceroute</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="ressources/Internet - Activite 4.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">04</span>
+                <span class="snt-activity-label">Débat : la neutralité du net</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="ressources/Internet - Activite 5.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">05</span>
+                <span class="snt-activity-label">Impact environnemental du numérique</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Colonne 3 : activités 6 à 10 -->
+          <div class="snt-col-activities">
+            <p class="snt-col-title">&nbsp;</p>
+            <div class="snt-activities">
+              <a class="snt-activity" href="ressources/Internet - Activite 6.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">06</span>
+                <span class="snt-activity-label">Fonctionnement d'un data center</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="ressources/Internet - Activite 7.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">07</span>
+                <span class="snt-activity-label">Simuler le routage par paquets</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="ressources/Internet - Activite 8.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">08</span>
+                <span class="snt-activity-label">Comprendre le DNS avec un annuaire</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="ressources/Internet - Activite 9.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">09</span>
+                <span class="snt-activity-label">Chiffrement des échanges en ligne</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="ressources/Internet - Activite 10.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">10</span>
+                <span class="snt-activity-label">Enquête : qui possède Internet ?</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -2132,7 +2340,7 @@ h1.hero-title{
     else percent = ((now - start) / (end - start)) * 100;
 
     fill.style.width = percent.toFixed(1) + '%';
-    label.textContent = `Progression de l'année scolaire — ${Math.round(percent)}%`;
+    label.textContent = `Année scolaire ${startYear}-${startYear + 1} · ${Math.round(percent)}% écoulés`;
   })();
 
   // Bouton "haut de page"
