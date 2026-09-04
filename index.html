@@ -426,8 +426,9 @@ main{
   text-align:center;
   flex-direction:column;
   background:
-    linear-gradient(180deg, rgba(6,10,20,0.35) 0%, rgba(6,10,20,0.55) 55%, var(--bg) 100%),
+    linear-gradient(180deg, rgba(6,10,20,0.35) 0%, rgba(6,10,20,0.55) 35%, var(--bg) 100%),
     url('images/hero-bg.jpg') center 30% / cover no-repeat;
+  z-index:1;
 }
 #hero .hero-inner{
   max-width:1436px;
@@ -1787,12 +1788,22 @@ h1.hero-title{
    SNT — sections "grande carte" par chapitre
    ============================================================ */
 .snt-section{
-  padding:36px 26px;
   scroll-margin-top:80px;
+  width:100vw;
+  position:relative;
+  left:50%;
+  right:50%;
+  margin-left:-50vw;
+  margin-right:-50vw;
+  background:linear-gradient(180deg, var(--bg) 0%, var(--bg-panel) 60px, var(--bg-panel) calc(100% - 60px), var(--bg) 100%);
+}
+.snt-section.light{
+  background:linear-gradient(180deg, var(--bg) 0%, #33230F 60px, #33230F calc(100% - 60px), var(--bg) 100%);
 }
 .snt-section-inner{
-  max-width:1400px;
+  max-width:1436px;
   margin:0 auto;
+  padding:56px 32px 64px;
 }
 .snt-chapter-head{
   display:flex;
@@ -1835,7 +1846,7 @@ h1.hero-title{
   border-radius:var(--radius-md);
 }
 @media (max-width:700px){
-  .snt-section{ padding:24px 14px; }
+  .snt-section-inner{ padding:24px 14px; }
   .snt-big-card{ padding:18px; border-radius:var(--radius-md); }
 }
 
@@ -1947,7 +1958,7 @@ h1.hero-title{
     </div>
   </section>
 
-  <section class="snt-section" id="chap1">
+  <section class="snt-section light" id="chap1">
     <div class="snt-section-inner">
       <div class="snt-chapter-head">
         <span class="snt-chapter-num">01</span>
@@ -1971,7 +1982,7 @@ h1.hero-title{
     </div>
   </section>
 
-  <section class="snt-section" id="chap3">
+  <section class="snt-section light" id="chap3">
     <div class="snt-section-inner">
       <div class="snt-chapter-head">
         <span class="snt-chapter-num">03</span>
@@ -1995,7 +2006,7 @@ h1.hero-title{
     </div>
   </section>
 
-  <section class="snt-section" id="chap5">
+  <section class="snt-section light" id="chap5">
     <div class="snt-section-inner">
       <div class="snt-chapter-head">
         <span class="snt-chapter-num">05</span>
@@ -2019,7 +2030,7 @@ h1.hero-title{
     </div>
   </section>
 
-  <section class="snt-section" id="chap7">
+  <section class="snt-section light" id="chap7">
     <div class="snt-section-inner">
       <div class="snt-chapter-head">
         <span class="snt-chapter-num">07</span>
@@ -2043,7 +2054,7 @@ h1.hero-title{
     </div>
   </section>
 
-  <section class="snt-section" id="chap9">
+  <section class="snt-section light" id="chap9">
     <div class="snt-section-inner">
       <div class="snt-chapter-head">
         <span class="snt-chapter-num">09</span>
