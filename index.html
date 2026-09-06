@@ -460,14 +460,14 @@ h1.hero-title{
 /* ---- Layout en 3 colonnes : programme (étroite) / 2 colonnes d'activités ---- */
 .snt-columns{
   display:grid;
-  grid-template-columns:2fr 1fr 1fr;
+  grid-template-columns:2fr 2fr;
   gap:24px;
-  align-items:stretch;
+  align-items:start;
 }
 .snt-col-programme{ display:flex; flex-direction:column; }
 @media (max-width:1000px){
-  .snt-columns{ grid-template-columns:1fr 1fr; }
-  .snt-col-programme{ grid-column:1 / -1; }
+  .snt-columns{ grid-template-columns:1fr; }
+  .snt-col-programme{ grid-column:auto; }
 }
 @media (max-width:640px){
   .snt-columns{ grid-template-columns:1fr; }
@@ -486,8 +486,6 @@ h1.hero-title{
 /* Programme officiel : tableau contenus / compétences */
 .snt-prog-table{
   width:100%;
-  flex:1;
-  height:100%;
   border-collapse:separate;
   border-spacing:0;
   border:1px solid var(--line);
@@ -528,6 +526,20 @@ h1.hero-title{
 }
 .snt-activities::-webkit-scrollbar{ width:6px; }
 .snt-activities::-webkit-scrollbar-thumb{ background:var(--line); border-radius:6px; }
+
+/* Activités réparties en 2 colonnes remplies verticalement (colonne 1 pleine avant colonne 2) */
+.snt-activities-multi{
+  columns:2;
+  column-gap:16px;
+  column-fill:auto;
+}
+.snt-activities-multi .snt-activity{
+  break-inside:avoid;
+  margin-bottom:8px;
+}
+@media (max-width:640px){
+  .snt-activities-multi{ columns:1; height:auto !important; }
+}
 .snt-activity{
   display:flex;
   align-items:center;
@@ -714,10 +726,9 @@ h1.hero-title{
             </table>
           </div>
 
-          <!-- Colonne 2 : activités 1 à 5 -->
           <div class="snt-col-activities">
             <p class="snt-col-title">Activités</p>
-            <div class="snt-activities">
+            <div class="snt-activities-multi">
               <a class="snt-activity" href="Internet/01. Introduction à internet - INTERNET.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">01</span>
                 <span class="snt-activity-label">Introduction à internet</span>
@@ -743,13 +754,7 @@ h1.hero-title{
                 <span class="snt-activity-label">Routage des paquets</span>
                 <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
               </a>
-            </div>
-          </div>
-
-          <!-- Colonne 3 : activités 6 à 9 -->
-          <div class="snt-col-activities">
-            <p class="snt-col-title">&nbsp;</p>
-            <div class="snt-activities">
+            
               <a class="snt-activity" href="Internet/06. Introduction aux protocoles TCP et IP - INTERNET.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">06</span>
                 <span class="snt-activity-label">Introduction aux protocoles TCP et IP</span>
@@ -821,10 +826,9 @@ h1.hero-title{
             </table>
           </div>
 
-          <!-- Colonne 2 : activités 1 à 5 -->
           <div class="snt-col-activities">
             <p class="snt-col-title">Activités</p>
-            <div class="snt-activities">
+            <div class="snt-activities-multi">
               <a class="snt-activity" href="Données/01. Introduction - DONNEES STRUCTURE TRAITEMENT.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">01</span>
                 <span class="snt-activity-label">Introduction</span>
@@ -850,13 +854,7 @@ h1.hero-title{
                 <span class="snt-activity-label">Données et formats</span>
                 <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
               </a>
-            </div>
-          </div>
-
-          <!-- Colonne 3 : activités 6 à 10 -->
-          <div class="snt-col-activities">
-            <p class="snt-col-title">&nbsp;</p>
-            <div class="snt-activities">
+            
               <a class="snt-activity" href="Données/06. Traitement de données ouvertes - DONNEES STRUCTURE TRAITEMENT.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">06</span>
                 <span class="snt-activity-label">Traitement de données ouvertes</span>
@@ -949,10 +947,9 @@ h1.hero-title{
             </table>
           </div>
 
-          <!-- Colonne 2 : activités 1 à 5 -->
           <div class="snt-col-activities">
             <p class="snt-col-title">Activités</p>
-            <div class="snt-activities">
+            <div class="snt-activities-multi">
               <a class="snt-activity" href="Web/01. Introduction au web.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">01</span>
                 <span class="snt-activity-label">Introduction au web</span>
@@ -978,13 +975,7 @@ h1.hero-title{
                 <span class="snt-activity-label">URL protocole HTTP et modèle client-serveur</span>
                 <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
               </a>
-            </div>
-          </div>
-
-          <!-- Colonne 3 : activités 6 à 10 -->
-          <div class="snt-col-activities">
-            <p class="snt-col-title">&nbsp;</p>
-            <div class="snt-activities">
+            
               <a class="snt-activity" href="Web/06. Principe du modèle client-serveur - WEB.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">06</span>
                 <span class="snt-activity-label">Principe du modèle client-serveur</span>
@@ -1061,10 +1052,9 @@ h1.hero-title{
             </table>
           </div>
 
-          <!-- Colonne 2 : activités 1 à 5 -->
           <div class="snt-col-activities">
             <p class="snt-col-title">Activités</p>
-            <div class="snt-activities">
+            <div class="snt-activities-multi">
               <a class="snt-activity" href="Localisation/01. Introduction à la géolocalisation - LOCALISATION CARTOGRAPHIE MOBILITE.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">01</span>
                 <span class="snt-activity-label">Introduction à la géolocalisation</span>
@@ -1090,13 +1080,7 @@ h1.hero-title{
                 <span class="snt-activity-label">Comment marche le GPS</span>
                 <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
               </a>
-            </div>
-          </div>
-
-          <!-- Colonne 3 : activités 6 à 10 -->
-          <div class="snt-col-activities">
-            <p class="snt-col-title">&nbsp;</p>
-            <div class="snt-activities">
+            
               <a class="snt-activity" href="Localisation/06. GPS et Galiléo- LOCALISATION CARTOGRAPHIE MOBILITE.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">06</span>
                 <span class="snt-activity-label">GPS et Galiléo</span>
@@ -1165,10 +1149,9 @@ h1.hero-title{
             </table>
           </div>
 
-          <!-- Colonne 2 : activités 1 à 5 -->
           <div class="snt-col-activities">
             <p class="snt-col-title">Activités</p>
-            <div class="snt-activities">
+            <div class="snt-activities-multi">
               <a class="snt-activity" href="Objets/01. Introduction aux objets connectés - OBJETS CONNECTES.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">01</span>
                 <span class="snt-activity-label">Introduction aux objets connectés</span>
@@ -1194,13 +1177,7 @@ h1.hero-title{
                 <span class="snt-activity-label">Les Robots</span>
                 <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
               </a>
-            </div>
-          </div>
-
-          <!-- Colonne 3 : activités 6 à 9 -->
-          <div class="snt-col-activities">
-            <p class="snt-col-title">&nbsp;</p>
-            <div class="snt-activities">
+            
               <a class="snt-activity" href="Objets/06. Microbit N1-N2-N3-N4 - OBJETS CONNECTES.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">06</span>
                 <span class="snt-activity-label">Microbit N1-N2-N3-N4</span>
@@ -1268,10 +1245,9 @@ h1.hero-title{
             </table>
           </div>
 
-          <!-- Colonne 2 : activités 1 à 5 -->
           <div class="snt-col-activities">
             <p class="snt-col-title">Activités</p>
-            <div class="snt-activities">
+            <div class="snt-activities-multi">
               <a class="snt-activity" href="Photographie/01. Introduction - PHOTOS NUMERIQUES.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">01</span>
                 <span class="snt-activity-label">Introduction</span>
@@ -1297,13 +1273,7 @@ h1.hero-title{
                 <span class="snt-activity-label">Formats et couleurs</span>
                 <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
               </a>
-            </div>
-          </div>
-
-          <!-- Colonne 3 : activités 6 à 10 -->
-          <div class="snt-col-activities">
-            <p class="snt-col-title">&nbsp;</p>
-            <div class="snt-activities">
+            
               <a class="snt-activity" href="Photographie/06. Principe des images numériques - PHOTOS NUMERIQUES.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">06</span>
                 <span class="snt-activity-label">Principe des images numériques</span>
@@ -1384,10 +1354,9 @@ h1.hero-title{
             </table>
           </div>
 
-          <!-- Colonne 2 : activités 1 à 5 -->
           <div class="snt-col-activities">
             <p class="snt-col-title">Activités</p>
-            <div class="snt-activities">
+            <div class="snt-activities-multi">
               <a class="snt-activity" href="Réseaux/01 - Introduction aux réseaux sociaux - RESEAUX SOCIAUX.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">01</span>
                 <span class="snt-activity-label">Introduction aux réseaux sociaux</span>
@@ -1413,13 +1382,7 @@ h1.hero-title{
                 <span class="snt-activity-label">Modèles économiques</span>
                 <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
               </a>
-            </div>
-          </div>
-
-          <!-- Colonne 3 : activités 6 à 10 -->
-          <div class="snt-col-activities">
-            <p class="snt-col-title">&nbsp;</p>
-            <div class="snt-activities">
+            
               <a class="snt-activity" href="Réseaux/06 - Modèle économique - rachat d'Instagram par Facebook - RESEAUX SOCIAUX.pdf" target="_blank" rel="noopener">
                 <span class="snt-activity-n">06</span>
                 <span class="snt-activity-label">Modèle économique - rachat d'Instagram par Facebook</span>
@@ -1459,7 +1422,29 @@ h1.hero-title{
         <h2>Algorithmique et programmation</h2>
       </div>
       <div class="snt-big-card">
-        <div class="snt-big-card-placeholder">Contenu à venir</div>
+        <div class="snt-columns">
+          <div class="snt-col-programme">
+            <p class="snt-col-title">Programme</p>
+            <table class="snt-prog-table" style="table-layout:fixed;">
+              <colgroup>
+                <col style="width:50%;">
+                <col style="width:50%;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Contenus</th>
+                  <th>Capacités attendues</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Affectations, variables<br>Séquences<br>Instructions conditionnelles<br>Boucles bornées et non bornées<br>Définitions et appels de fonctions</td>
+                  <td>Écrire et développer des programmes pour répondre à des problèmes et modéliser des phénomènes physiques, économiques et sociaux.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1559,5 +1544,18 @@ h1.hero-title{
   })();
 </script>
 
+  <script>
+    function syncActivitiesHeight(){
+      document.querySelectorAll('.snt-columns').forEach(function(cols){
+        var table = cols.querySelector('.snt-prog-table');
+        var acts = cols.querySelector('.snt-activities-multi');
+        if(table && acts){
+          acts.style.height = table.offsetHeight + 'px';
+        }
+      });
+    }
+    window.addEventListener('load', syncActivitiesHeight);
+    window.addEventListener('resize', syncActivitiesHeight);
+  </script>
 </body>
 </html>
