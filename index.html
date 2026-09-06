@@ -568,6 +568,55 @@ h1.hero-title{
   color:var(--grey-dim);
 }
 
+/* Chapitre 0 : couverture BD cliquable + activités liées (questionnaire / corrigé) */
+.snt-chap0-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  align-items:start;
+}
+.snt-chap0-content{
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+}
+@media (max-width:700px){
+  .snt-chap0-layout{ grid-template-columns:1fr; }
+  .snt-chap0-content{ flex-direction:column; }
+}
+.snt-bd-cover{
+  display:block;
+  width:200px;
+  flex-shrink:0;
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  border:1px solid var(--line);
+  text-decoration:none;
+  background:rgba(212,162,78,0.05);
+  transition:border-color 0.2s;
+}
+.snt-bd-cover:hover{ border-color:var(--accent); }
+.snt-bd-cover img{
+  display:block;
+  width:100%;
+  aspect-ratio:1123/1477; /* ratio réel de la couverture fournie */
+  object-fit:cover;
+  background:var(--line);
+}
+.snt-bd-cover-caption{
+  padding:10px 14px;
+  font-size:0.75rem;
+  color:var(--grey);
+  border-top:1px solid var(--line);
+}
+.snt-chap0-activities{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  flex:1;
+  min-width:0;
+}
+
 </style>
 </head>
 
@@ -670,7 +719,33 @@ h1.hero-title{
         <h2>Les décodeuses du numérique</h2>
       </div>
       <div class="snt-big-card">
-        <div class="snt-big-card-placeholder">Contenu à venir</div>
+        <div class="snt-chap0-layout">
+
+          <div class="snt-chap0-content">
+            <!-- Couverture de la BD (image de la 1ère page), cliquable vers le PDF -->
+            <a class="snt-bd-cover" href="Décodeuses/Les décodeuses du numérique.pdf" target="_blank" rel="noopener">
+              <img src="Décodeuses/couverture.jpg" alt="Couverture de la BD Les décodeuses du numérique">
+              <span class="snt-bd-cover-caption">Lire la BD (PDF)</span>
+            </a>
+
+            <!-- Activités liées : questionnaire + corrigé -->
+            <div class="snt-chap0-activities">
+              <a class="snt-activity" href="Décodeuses/Questionnaire.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">01</span>
+                <span class="snt-activity-label">Questionnaire sur la BD</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+              <a class="snt-activity" href="Décodeuses/Corrigé.pdf" target="_blank" rel="noopener">
+                <span class="snt-activity-n">02</span>
+                <span class="snt-activity-label">Corrigé du questionnaire</span>
+                <svg class="snt-activity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div><!-- Espace libre pour un futur contenu --></div>
+
+        </div>
       </div>
     </div>
   </section>
