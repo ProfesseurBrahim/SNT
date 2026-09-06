@@ -568,15 +568,20 @@ h1.hero-title{
   color:var(--grey-dim);
 }
 
-/* Chapitre 0 : deux cartes côte à côte (BD + Femmes et sciences) */
+/* Chapitre 0 : deux cartes côte à côte (BD + Découvreuses anonymes), largeur adaptée au contenu */
 .snt-chap0-cards{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:flex;
+  flex-wrap:wrap;
   gap:24px;
-  align-items:start;
+  align-items:flex-start;
+}
+.snt-chap0-cards .snt-big-card{
+  width:auto;
+  flex:0 0 auto;
 }
 @media (max-width:700px){
-  .snt-chap0-cards{ grid-template-columns:1fr; }
+  .snt-chap0-cards{ flex-direction:column; }
+  .snt-chap0-cards .snt-big-card{ width:100%; }
 }
 .snt-chap0-content{
   display:flex;
@@ -792,7 +797,7 @@ h1.hero-title{
 
         <!-- Carte 2 : Ressources -->
         <div class="snt-big-card">
-          <p class="snt-col-title">Ressources</p>
+          <p class="snt-col-title">Découvreuses anonymes</p>
           <div class="snt-resources-grid">
             <a class="snt-resource-item" href="Décodeuses/Exposition.pdf" target="_blank" rel="noopener">
               <img src="Décodeuses/exposition-cover.jpg" alt="Exposition sur les découvreuses anonymes">
