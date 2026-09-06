@@ -607,8 +607,12 @@ h1.hero-title{
   background:var(--line);
 }
 .snt-bd-cover-caption{
-  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  height:52px;
+  padding:0 14px;
   font-size:0.75rem;
+  line-height:1.3;
   color:var(--grey);
   border-top:1px solid var(--line);
 }
@@ -618,6 +622,44 @@ h1.hero-title{
   gap:8px;
   flex:1;
   min-width:0;
+}
+
+/* Grille de ressources (exposition, kit d'action, etc.) : vignettes cliquables */
+.snt-resources-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 200px);
+  gap:20px;
+  margin-top:12px;
+}
+@media (max-width:480px){
+  .snt-resources-grid{ grid-template-columns:1fr; }
+}
+.snt-resource-item{
+  display:block;
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  border:1px solid var(--line);
+  text-decoration:none;
+  background:rgba(212,162,78,0.05);
+  transition:border-color 0.2s;
+}
+.snt-resource-item:hover{ border-color:var(--accent); }
+.snt-resource-item img{
+  display:block;
+  width:100%;
+  aspect-ratio:1123/1477;
+  object-fit:cover;
+  background:var(--line);
+}
+.snt-resource-caption{
+  display:flex;
+  align-items:center;
+  height:52px;
+  padding:0 14px;
+  font-size:0.75rem;
+  line-height:1.3;
+  color:var(--grey);
+  border-top:1px solid var(--line);
 }
 
 </style>
@@ -748,10 +790,19 @@ h1.hero-title{
           </div>
         </div>
 
-        <!-- Carte 2 : Femmes et sciences -->
+        <!-- Carte 2 : Ressources -->
         <div class="snt-big-card">
           <p class="snt-col-title">Ressources</p>
-          <div class="snt-big-card-placeholder">Contenu à venir</div>
+          <div class="snt-resources-grid">
+            <a class="snt-resource-item" href="Décodeuses/Exposition.pdf" target="_blank" rel="noopener">
+              <img src="Décodeuses/exposition-cover.jpg" alt="Exposition sur les découvreuses anonymes">
+              <span class="snt-resource-caption">Exposition — Les découvreuses anonymes</span>
+            </a>
+            <a class="snt-resource-item" href="Décodeuses/Kit-Action.pdf" target="_blank" rel="noopener">
+              <img src="Décodeuses/kit-action-cover.jpg" alt="Kit d'Action sur les découvreuses anonymes">
+              <span class="snt-resource-caption">Kit d'Action — Les découvreuses anonymes</span>
+            </a>
+          </div>
         </div>
 
       </div>
