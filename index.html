@@ -568,20 +568,23 @@ h1.hero-title{
   color:var(--grey-dim);
 }
 
-/* Chapitre 0 : couverture BD cliquable + activités liées (questionnaire / corrigé) */
-.snt-chap0-layout{
+/* Chapitre 0 : deux cartes côte à côte (BD + Femmes et sciences) */
+.snt-chap0-cards{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:28px;
+  gap:24px;
   align-items:start;
+}
+@media (max-width:700px){
+  .snt-chap0-cards{ grid-template-columns:1fr; }
 }
 .snt-chap0-content{
   display:flex;
   gap:28px;
   align-items:flex-start;
+  margin-top:12px;
 }
-@media (max-width:700px){
-  .snt-chap0-layout{ grid-template-columns:1fr; }
+@media (max-width:500px){
   .snt-chap0-content{ flex-direction:column; }
 }
 .snt-bd-cover{
@@ -634,7 +637,7 @@ h1.hero-title{
 
   <div class="nav-center">
     <div class="nav-section-links">
-      <a class="nav-seclink is-active" href="#chap0">0. Les décodeuses du numérique</a>
+      <a class="nav-seclink is-active" href="#chap0">0. Femmes et sciences</a>
       <a class="nav-seclink" href="#chap1">1. Internet</a>
       <a class="nav-seclink" href="#chap2">2. Les données</a>
       <a class="nav-seclink" href="#chap3">3. Le web</a>
@@ -643,7 +646,6 @@ h1.hero-title{
       <a class="nav-seclink" href="#chap6">6. Photographie</a>
       <a class="nav-seclink" href="#chap7">7. Réseaux sociaux</a>
       <a class="nav-seclink" href="#chap8">8. Algorithmes</a>
-      <a class="nav-seclink" href="#chap9">9. Ressources</a>
     </div>
   </div>
 
@@ -716,11 +718,13 @@ h1.hero-title{
     <div class="snt-section-inner">
       <div class="snt-chapter-head">
         <span class="snt-chapter-num">00</span>
-        <h2>Les décodeuses du numérique</h2>
+        <h2>Femmes et sciences</h2>
       </div>
-      <div class="snt-big-card">
-        <div class="snt-chap0-layout">
+      <div class="snt-chap0-cards">
 
+        <!-- Carte 1 : Les décodeuses du numérique -->
+        <div class="snt-big-card">
+          <p class="snt-col-title">Les décodeuses du numérique</p>
           <div class="snt-chap0-content">
             <!-- Couverture de la BD (image de la 1ère page), cliquable vers le PDF -->
             <a class="snt-bd-cover" href="Décodeuses/Les décodeuses du numérique.pdf" target="_blank" rel="noopener">
@@ -742,10 +746,14 @@ h1.hero-title{
               </a>
             </div>
           </div>
-
-          <div><!-- Espace libre pour un futur contenu --></div>
-
         </div>
+
+        <!-- Carte 2 : Femmes et sciences -->
+        <div class="snt-big-card">
+          <p class="snt-col-title">Ressources</p>
+          <div class="snt-big-card-placeholder">Contenu à venir</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1557,17 +1565,6 @@ h1.hero-title{
             </table>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="snt-section light" id="chap9">
-    <div class="snt-section-inner">
-      <div class="snt-chapter-head">
-        <span class="snt-chapter-num">09</span>
-        <h2>Ressources</h2>
-      </div>
-      <div class="snt-big-card">
-        <div class="snt-big-card-placeholder">Contenu à venir</div>
       </div>
     </div>
   </section>
