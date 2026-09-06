@@ -1622,8 +1622,11 @@ h1.hero-title{
     else if (now > end) percent = 100;
     else percent = ((now - start) / (end - start)) * 100;
 
-    fill.style.width = percent.toFixed(1) + '%';
-    label.textContent = `Année scolaire ${startYear}-${startYear + 1} · ${Math.round(percent)}% écoulés`;
+    // Troncature au dixième (et non arrondi)
+    const percentTruncated = Math.floor(percent * 10) / 10;
+
+    fill.style.width = percentTruncated + '%';
+    label.textContent = `Année scolaire ${startYear}-${startYear + 1} · ${percentTruncated.toFixed(1)}% écoulés`;
   })();
 
   // Bouton "haut de page"
